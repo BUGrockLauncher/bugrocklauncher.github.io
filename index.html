@@ -908,6 +908,180 @@
       line-height: 1.45;
     }
 
+    /* ==========================================================================
+       LIVE GITHUB TELEMETRY PILL & TROUBLESHOOTING FAQ (12-COL ASYMMETRIC)
+       ========================================================================== */
+    .live-telemetry-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #111319;
+      border: 2px solid #2A3042;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.06), 0 8px 20px rgba(0,0,0,0.45);
+      padding: 8px 18px;
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      color: #CBD5E1;
+    }
+    .live-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--mc-lime);
+      box-shadow: 0 0 8px var(--mc-lime);
+      display: inline-block;
+      animation: telemetryPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes telemetryPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.85); }
+    }
+    .live-telemetry-bar strong {
+      color: var(--mc-lime);
+      font-weight: 700;
+    }
+    .live-telemetry-divider {
+      color: #3B4256;
+    }
+
+    .faq-section {
+      background: #161820;
+      padding: 82px 0;
+      border-top: 2px solid #0E1015;
+    }
+    .faq-diag-card {
+      background: #12141B;
+      border: 2px solid #2A2F40;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), 0 12px 28px rgba(0,0,0,0.55);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+    }
+    .faq-diag-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--mc-glitch);
+    }
+    .faq-diag-card h3 {
+      font-family: 'MinecraftTen', sans-serif;
+      font-size: 1.55rem;
+      color: #fff;
+      text-shadow: 0 3px 0 #000;
+      margin-bottom: 10px;
+      letter-spacing: 0.065em;
+    }
+    .faq-diag-card p {
+      font-size: 0.96rem;
+      color: #CBD5E1;
+      line-height: 1.65;
+    }
+    .faq-accordion-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: #12141B;
+      border: 2px solid #282D3E;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04);
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+    .faq-item[open] {
+      border-color: var(--mc-green-light);
+      background: #141821;
+    }
+    .faq-question {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      user-select: none;
+    }
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+    .faq-q-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+    .faq-q-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--mc-lime);
+      background: #122114;
+      border: 1px solid #2A4D28;
+      padding: 3px 8px;
+      flex-shrink: 0;
+    }
+    .faq-q-title {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: #FFFFFF;
+      line-height: 1.4;
+    }
+    .faq-q-icon {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--mc-lime);
+      background: #191D28;
+      border: 1px solid #2E3446;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .faq-item[open] .faq-q-icon {
+      transform: rotate(45deg);
+      background: #182B19;
+      border-color: var(--mc-green-light);
+    }
+    .faq-answer {
+      padding: 0 22px 20px 22px;
+      border-top: 1px solid #222736;
+      color: #CBD5E1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .faq-answer p {
+      margin-top: 12px;
+    }
+    .faq-answer code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.84rem;
+      background: #0D0F14;
+      border: 1px solid #282E3E;
+      color: #FDE047;
+      padding: 2px 7px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo-wrapper, .mc-splash-text, .arrow-down-btn, .live-pulse-dot {
+        animation: none !important;
+      }
+      .bento-card, .faq-item, .faq-q-icon {
+        transition: none !important;
+      }
+    }
+
     @media (max-width: 1024px) {
       .bento-span-3 {
         grid-column: span 6;
@@ -940,9 +1114,10 @@
       <ul class="nav-menu">
         <li><a href="#features">Features</a></li>
         <li><a href="#editions">Editions (Full vs Lite)</a></li>
-        <li><a href="#requirements">System Requirements</a></li>
+        <li><a href="#requirements">Setup</a></li>
+        <li><a href="#faq">FAQ &amp; Fixes</a></li>
         <li><button type="button" class="nav-btn-donate" data-open-donate>💜 Donate</button></li>
-        <li><a href="#downloads" class="nav-btn-mini">Download v1.1.11</a></li>
+        <li><a href="#downloads" class="nav-btn-mini" id="nav-download-btn">Download v1.1.11</a></li>
       </ul>
     </div>
   </nav>
@@ -969,7 +1144,7 @@
     <!-- Minecraft Green Action Buttons -->
     <div class="buttons-group" id="downloads">
       <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-mc-green" id="main-download-btn">
-        <span>⬇ DOWNLOAD v1.1.11 (WINDOWS x64)</span>
+        <span id="main-download-label">⬇ DOWNLOAD v1.1.11 (WINDOWS x64)</span>
       </a>
       <a href="#editions" class="btn-mc-stone">
         <span>📦 COMPARE FULL VS LITE</span>
@@ -981,10 +1156,20 @@
 
     <!-- Metadata strip -->
     <div class="hero-meta-strip">
-      <span>● Current Stable: <strong>v1.1.11</strong></span>
+      <span>● Current Stable: <strong id="live-latest-version">v1.1.11</strong></span>
       <span>● Packages: <strong>GDK (.msixvc) &amp; UWP (.appx)</strong></span>
-      <span>● Editions: <strong>Full (76 MB) &amp; Lite (10 MB)</strong></span>
+      <span>● Editions: <strong id="live-editions-size">Full (73.3 MB) &amp; Lite (10.2 MB)</strong></span>
       <span>● License: <strong>GPL-3.0 Open Source</strong></span>
+    </div>
+
+    <!-- Live GitHub Releases Telemetry Counter -->
+    <div class="live-telemetry-bar" id="github-telemetry-bar" aria-live="polite">
+      <span class="live-pulse-dot"></span>
+      <span>GitHub Releases Live: <strong id="live-total-downloads">Verified v1.1.11 Builds</strong></span>
+      <span class="live-telemetry-divider">//</span>
+      <span>Latest Tag: <strong id="live-release-tag">v1.1.11</strong></span>
+      <span class="live-telemetry-divider">//</span>
+      <span>Auto-Synced via GitHub API</span>
     </div>
 
     <a href="#features" class="arrow-down-btn" title="Scroll down to features">
@@ -1145,7 +1330,7 @@
   <section id="editions" class="editions-section">
     <div class="container">
       <div class="section-intro-head">
-        <h2>Choose Your v1.1.11 Edition</h2>
+        <h2>Choose Your <span id="editions-heading-version">v1.1.11</span> Edition</h2>
         <p>Every GitHub release ships in two clean ZIP distributions so you can pick zero-prerequisite convenience or minimal download size.</p>
       </div>
 
@@ -1155,7 +1340,7 @@
           <div>
             <div class="edition-header">
               <span class="bento-kicker" style="margin-bottom: 0;">RECOMMENDED // IMMEDIATE PLAY</span>
-              <span class="edition-size">~76 MB ZIP</span>
+              <span class="edition-size" id="full-edition-size">~73.3 MB ZIP</span>
             </div>
             <h3>Full Standalone Edition</h3>
             <p>
@@ -1167,8 +1352,8 @@
               <li>Ideal for first-time users who want everything working in one extraction.</li>
             </ul>
           </div>
-          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.11/BUGrock-Launcher-v1.1.11-Full-Standalone-win-x64.zip" class="btn-mc-green" style="width: 100%; font-size: 1.1rem; padding: 0.85rem 1.5rem;">
-            <span>⬇ DOWNLOAD FULL STANDALONE (v1.1.11)</span>
+          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.11/BUGrock-Launcher-v1.1.11-Full-Standalone-win-x64.zip" id="full-download-btn" class="btn-mc-green" style="width: 100%; font-size: 1.1rem; padding: 0.85rem 1.5rem;">
+            <span id="full-download-label">⬇ DOWNLOAD FULL STANDALONE (v1.1.11)</span>
           </a>
         </div>
 
@@ -1177,7 +1362,7 @@
           <div>
             <div class="edition-header">
               <span class="bento-kicker" style="margin-bottom: 0; color: #93C5FD; background: #131B2A; border-color: #29416B;">MINIMAL // SYSTEM RUNTIMES</span>
-              <span class="edition-size lite">~10 MB ZIP</span>
+              <span class="edition-size lite" id="lite-edition-size">~10.2 MB ZIP</span>
             </div>
             <h3>Lite Edition</h3>
             <p>
@@ -1188,8 +1373,8 @@
               <li>Fastest download and smallest disk footprint for repeat updates.</li>
             </ul>
           </div>
-          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.11/BUGrock-Launcher-v1.1.11-Lite-win-x64.zip" class="btn-mc-stone" style="width: 100%; font-size: 1.05rem; padding: 0.85rem 1.5rem;">
-            <span>⬇ DOWNLOAD LITE EDITION (v1.1.11)</span>
+          <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/download/v1.1.11/BUGrock-Launcher-v1.1.11-Lite-win-x64.zip" id="lite-download-btn" class="btn-mc-stone" style="width: 100%; font-size: 1.05rem; padding: 0.85rem 1.5rem;">
+            <span id="lite-download-label">⬇ DOWNLOAD LITE EDITION (v1.1.11)</span>
           </a>
         </div>
       </div>
@@ -1237,10 +1422,140 @@
       <!-- CTA Box -->
       <div class="cta-download-box">
         <h3>Ready to manage your Bedrock instances cleanly?</h3>
-        <p>Download Full Standalone (~76 MB) for zero-setup launch or Lite (~10 MB) if you already have .NET 8 installed.</p>
-        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-mc-green">
-          <span>⬇ VIEW ALL v1.1.11 RELEASES ON GITHUB</span>
+        <p>Download Full Standalone (~73.3 MB) for zero-setup launch or Lite (~10.2 MB) if you already have .NET 8 installed.</p>
+        <a href="https://github.com/BUGrockLauncher/BUGrockLauncher/releases/latest" class="btn-mc-green" id="cta-release-btn">
+          <span id="cta-release-label">⬇ VIEW ALL v1.1.11 RELEASES ON GITHUB</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TROUBLESHOOTING & QUICK FAQ (12-Column Asymmetric Diagnostic Layout)
+       ======================================================================== -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <div class="section-intro-head">
+        <h2>Troubleshooting &amp; Quick FAQ</h2>
+        <p>Direct answers for package sideloading, service diagnostics, and isolated world saves on Windows 10 &amp; 11.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Left 5-Column Diagnostic Reference Card -->
+        <aside class="faq-diag-card bento-span-5">
+          <div>
+            <span class="bento-kicker">DIAGNOSTICS // BUGROCK_CHECK</span>
+            <h3>1-Click Windows Service Repair</h3>
+            <p>
+              If a package fails to register or launch, run the bundled <code>BUGrock_Check.exe</code> tool inside your launcher folder. It inspects and repairs the four Windows services required by Bedrock builds:
+            </p>
+            <div class="bento-panel" style="margin-top: 16px;">
+              <div class="bento-panel-row highlight">
+                <span>AppXSvc (AppX Deployment)</span>
+                <span class="bento-tag ok">REQUIRED</span>
+              </div>
+              <div class="bento-panel-row">
+                <span>ClipSVC (Client License)</span>
+                <span class="bento-tag ok">REQUIRED</span>
+              </div>
+              <div class="bento-panel-row">
+                <span>GamingServices (GDK Runtime)</span>
+                <span class="bento-tag">GDK BUILDS</span>
+              </div>
+              <div class="bento-panel-row">
+                <span>wuauserv (Windows Update)</span>
+                <span class="bento-tag">DEPENDENCIES</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 14px;">
+              Still stuck? Share your <code>BUGrock_Check</code> output in our Discord <strong>#support-help</strong> forum.
+            </p>
+            <a href="https://discord.gg/wTR5GVSEDV" target="_blank" class="btn-mc-stone" style="width: 100%; font-size: 1rem; padding: 0.75rem 1.2rem;">
+              <span>💬 GET HELP ON DISCORD</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- Right 7-Column Interactive FAQ Accordion -->
+        <div class="faq-accordion-stack bento-span-7">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <div class="faq-q-left">
+                <span class="faq-q-index">01</span>
+                <span class="faq-q-title">How do I enable Windows Developer Mode for .appx builds?</span>
+              </div>
+              <span class="faq-q-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Windows requires <strong>Developer Mode</strong> to register unpacked or legacy UWP (<code>.appx</code>) Minecraft Bedrock versions. Open <code>Settings &gt; System &gt; For developers</code> (or press <code>Win + R</code> and run <code>ms-settings:developers</code>) and toggle <strong>Developer Mode</strong> to <strong>ON</strong>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <div class="faq-q-left">
+                <span class="faq-q-index">02</span>
+                <span class="faq-q-title">What is the difference between GDK (.msixvc) and UWP (.appx)?</span>
+              </div>
+              <span class="faq-q-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Recent Minecraft Bedrock releases use Microsoft's <strong>GDK (<code>.msixvc</code>)</strong> package architecture, while older classic versions use <strong>Legacy UWP (<code>.appx</code>)</strong>. BUGrock Launcher supports both formats side-by-side and automatically routes each build through the correct deployment service.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <div class="faq-q-left">
+                <span class="faq-q-index">03</span>
+                <span class="faq-q-title">How do I fix ClipSVC, 0x80073CF9, or Store license errors?</span>
+              </div>
+              <span class="faq-q-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                First, make sure you are signed into the <strong>Microsoft Store</strong> and <strong>Xbox App</strong> on Windows. Second, launch <code>BUGrock_Check.exe</code> (bundled in the launcher folder) as Administrator to automatically start <code>ClipSVC</code>, <code>AppXSvc</code>, and <code>GamingServices</code>. Also extract the launcher to a short folder path like <code>C:\Games\BUGrock</code>.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <div class="faq-q-left">
+                <span class="faq-q-index">04</span>
+                <span class="faq-q-title">Where are my isolated worlds saved, and how do backups work?</span>
+              </div>
+              <span class="faq-q-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Each profile created in <strong>Edit Instances</strong> uses its own isolated <code>com.mojang</code> directory via NTFS folder junctions so switching between old and new Bedrock versions never corrupts your saves. Click <strong>Local Data Directory</strong> in the launcher sidebar to open your active instance's worlds folder, or enable <strong>Pre-Launch World Auto-Backup</strong> for automatic timestamped <code>.zip</code> archives.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <div class="faq-q-left">
+                <span class="faq-q-index">05</span>
+                <span class="faq-q-title">Should I pick Full Standalone or Lite Edition?</span>
+              </div>
+              <span class="faq-q-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Choose <strong>Full Standalone (~73.3 MB)</strong> if you want a 100% self-contained package with the <code>.NET 8.0 Desktop Runtime</code> bundled inside. Choose <strong>Lite Edition (~10.2 MB)</strong> if you already have <code>.NET 8.0 Desktop Runtime (x64)</code> installed on your PC and want the smallest download.
+              </p>
+            </div>
+          </details>
+        </div>
       </div>
     </div>
   </section>
@@ -1254,6 +1569,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#editions">Editions (Full vs Lite)</a></li>
         <li><a href="#requirements">System Requirements</a></li>
+        <li><a href="#faq">Troubleshooting &amp; FAQ</a></li>
         <li><a href="#donate" data-open-donate>💜 Donate (Crypto)</a></li>
         <li><a href="https://github.com/BUGrockLauncher/BUGrockLauncher" target="_blank">GitHub Repository</a></li>
         <li><a href="https://discord.gg/wTR5GVSEDV" target="_blank">Discord Server</a></li>
@@ -1314,9 +1630,98 @@
       } catch(e) {}
     }
 
-    document.querySelectorAll('a, button').forEach(el => {
+    document.querySelectorAll('a, button, summary').forEach(el => {
       el.addEventListener('click', playMinecraftClick);
     });
+
+    /* Live GitHub Releases API Sync (Downloads Counter + Latest Version & Assets) */
+    (async function syncGitHubReleases() {
+      const CACHE_KEY = 'bugrock_gh_releases_v1';
+      const CACHE_TTL = 5 * 60 * 1000;
+      let releases = null;
+
+      try {
+        const cached = sessionStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (parsed && (Date.now() - parsed.ts < CACHE_TTL) && Array.isArray(parsed.data)) {
+            releases = parsed.data;
+          }
+        }
+      } catch (e) {}
+
+      if (!releases) {
+        try {
+          const resp = await fetch('https://api.github.com/repos/BUGrockLauncher/BUGrockLauncher/releases?per_page=30', {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+          });
+          if (resp.ok) {
+            releases = await resp.json();
+            try {
+              sessionStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: releases }));
+            } catch (e) {}
+          }
+        } catch (e) {}
+      }
+
+      if (!Array.isArray(releases) || releases.length === 0) return;
+
+      let totalDownloads = 0;
+      for (const rel of releases) {
+        if (Array.isArray(rel.assets)) {
+          for (const asset of rel.assets) {
+            totalDownloads += (Number(asset.download_count) || 0);
+          }
+        }
+      }
+
+      const latest = releases.find(r => !r.draft && !r.prerelease) || releases[0];
+      if (!latest || !latest.tag_name) return;
+
+      const tag = latest.tag_name;
+      const assets = Array.isArray(latest.assets) ? latest.assets : [];
+      const fullAsset = assets.find(a => /full/i.test(a.name) && /\.zip$/i.test(a.name));
+      const liteAsset = assets.find(a => /lite/i.test(a.name) && /\.zip$/i.test(a.name));
+
+      const fmtMB = (bytes) => (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+      const fullMB = fullAsset && fullAsset.size ? fmtMB(fullAsset.size) : '73.3 MB';
+      const liteMB = liteAsset && liteAsset.size ? fmtMB(liteAsset.size) : '10.2 MB';
+
+      const setTxt = (id, txt) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = txt;
+      };
+      const setHref = (id, url) => {
+        const el = document.getElementById(id);
+        if (el && url) el.href = url;
+      };
+
+      setTxt('nav-download-btn', 'Download ' + tag);
+      setTxt('main-download-label', '⬇ DOWNLOAD ' + tag + ' (WINDOWS x64)');
+      setTxt('live-latest-version', tag);
+      setTxt('live-release-tag', tag);
+      setTxt('live-editions-size', 'Full (' + fullMB + ') & Lite (' + liteMB + ')');
+      setTxt('editions-heading-version', tag);
+      setTxt('full-edition-size', '~' + fullMB + ' ZIP');
+      setTxt('lite-edition-size', '~' + liteMB + ' ZIP');
+      setTxt('full-download-label', '⬇ DOWNLOAD FULL STANDALONE (' + tag + ')');
+      setTxt('lite-download-label', '⬇ DOWNLOAD LITE EDITION (' + tag + ')');
+      setTxt('cta-release-label', '⬇ VIEW ALL ' + tag + ' RELEASES ON GITHUB');
+
+      if (fullAsset && fullAsset.browser_download_url) {
+        setHref('full-download-btn', fullAsset.browser_download_url);
+      }
+      if (liteAsset && liteAsset.browser_download_url) {
+        setHref('lite-download-btn', liteAsset.browser_download_url);
+      }
+
+      setTxt(
+        'live-total-downloads',
+        totalDownloads > 0
+          ? totalDownloads.toLocaleString('en-US') + ' Total Downloads'
+          : 'Verified ' + tag + ' Builds'
+      );
+    })();
 
     (function() {
       const modal = document.getElementById('donate-modal');
